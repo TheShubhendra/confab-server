@@ -1,7 +1,10 @@
 """Main server file to handle HTTP API requests """
 import os
 from flask import Flask, request
-from confabserver.accounts import register_user
+from confabserver.accounts import (
+    register_user,
+    is_username_registered,
+)
 
 TOKEN = os.environ.get("TOKEN")
 DATABASE_URL = os.environ.get("DATA")
@@ -18,3 +21,12 @@ def register():
         return "1"
     else:
         return "0"
+
+
+@app.route('/api/checkusername', methods=["post"])
+def checkusername():
+    username = request.get_json()["username"]
+    if is_username_registered(username):
+        return "0"
+    else:
+        return "1"
