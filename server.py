@@ -1,17 +1,20 @@
 """Main server file to handle HTTP API requests """
 import os
-import pyscopg2
 from flask import Flask, request
-
+from confabserver.accounts import register_user
 
 TOKEN = os.environ.get("TOKEN")
 DATABASE_URL = os.environ.get("DATA")
 app = Flask(__name__)
 
 
-@app.route('/api/login',methods=["POST"])
-def login():
+@app.route('/api/register', methods=["POST"])
+def register():
     data = request.get_json()
     username = data["username"]
     password = data["password"]
-
+    client_data = data["client_data"]
+    if register_user(username, password, client_data):
+        return "1"
+    else:
+        return "0"
