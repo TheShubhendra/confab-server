@@ -4,8 +4,7 @@ import datetime
 
 
 def register_user(username: str, password: str, client_data: str) -> bool:
-
-    """Function to register user
+    """Register a user.
 
     This function register a user
     to the database after checking
@@ -30,11 +29,11 @@ def register_user(username: str, password: str, client_data: str) -> bool:
 
 
 def is_username_registered(username: str) -> bool:
-
-    """Function to check username.
+    """Check username.
 
     This function check whether a username
-    is available or not for new registration."""
+    is available or not for new registration.
+    """
     connector = ConfabDatabaseConnector()
     sql = """
     SELECT COUNT(*) FROM login_data
