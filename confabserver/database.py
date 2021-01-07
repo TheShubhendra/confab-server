@@ -7,7 +7,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 
 
 class ConfabDatabaseConnector:
-     """Database connector."""
+    """Database connector."""
 
     def __init__(self):
         self.connection = psycopg2.connect(DATABASE_URL)
