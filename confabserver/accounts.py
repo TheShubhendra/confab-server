@@ -4,6 +4,7 @@ import datetime
 
 
 def register_user(username: str, password: str, client_data: str) -> bool:
+
     """Function to register user
 
     This function register a user
@@ -29,7 +30,10 @@ def register_user(username: str, password: str, client_data: str) -> bool:
 
 
 def is_username_registered(username: str) -> bool:
-    """This function check whether a username
+
+    """Function to check username.
+
+    This function check whether a username
     is available or not for new registration."""
     connector = ConfabDatabaseConnector()
     sql = """
