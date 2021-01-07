@@ -1,4 +1,4 @@
-"""Database module"""
+"""Database module."""
 import os
 import psycopg2
 
@@ -7,6 +7,8 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 
 
 class ConfabDatabaseConnector:
+
+    """Database connector."""
 
     def __init__(self):
         self.connection = psycopg2.connect(DATABASE_URL)
