@@ -7,6 +7,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 
 
 class ConfabDatabaseConnector:
+ 
     """Database connector."""
 
     def __init__(self):
