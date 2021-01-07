@@ -1,4 +1,4 @@
-"""Main server file to handle HTTP API requests. """
+"""Main server file to handle HTTP API requests."""
 import os
 from flask import Flask, request
 from confabserver.accounts import (
@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 @app.route('/api/register', methods=["POST"])
 def register():
+    """Register a user in Confab."""
     data = request.get_json()
     username = data["username"]
     password = data["password"]
@@ -25,6 +26,7 @@ def register():
 
 @app.route('/api/checkusername', methods=["post"])
 def checkusername():
+    """Check availability of a username."""
     username = request.get_json()["username"]
     if is_username_registered(username):
         return "0"
