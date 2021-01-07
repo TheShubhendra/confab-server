@@ -1,4 +1,4 @@
-"""Main server file to handle HTTP API requests """
+"""Main server file to handle HTTP API requests. """
 import os
 from flask import Flask, request
 from confabserver.accounts import (
