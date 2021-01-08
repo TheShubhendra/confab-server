@@ -32,3 +32,10 @@ def checkusername():
         return "0"
     else:
         return "1"
+
+def main():
+    app.run()
+
+
+if __name__ == '__main__':
+    main()
