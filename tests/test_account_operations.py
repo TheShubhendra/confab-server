@@ -3,7 +3,7 @@ from .helper import delete_tested_user
 
 
 def test_check_username():
-    url = 'http://127.0.0.1:8000/api/checkusername'
+    url = 'http://127.0.0.1:5000/api/checkusername'
     data1 = {
              "username": "available-username-availibilty-test",
              "password": "unit-test",
@@ -20,7 +20,7 @@ def test_check_username():
 
 
 def test_register():
-    url = 'http://127.0.0.1:8000/api/register'
+    url = 'http://127.0.0.1:5000/api/register'
     data1 = {
         "username": "newuser-register-test",
         "password": "unit-test",
