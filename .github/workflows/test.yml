@@ -38,4 +38,4 @@ jobs:
       run: |
         pytest --cov
       env:
-        DATABASE_URL: "dbname=postgres user=postgres password=postgres host=postgres"
+        DATABASE_URL: "dbname=postgres user=postgres password=postgres host=127.0.0.1"
