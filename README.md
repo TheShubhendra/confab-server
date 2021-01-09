@@ -6,3 +6,4 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/TheShubhendra/confab-server)
 
 Server to handle Confab services
+Officially deployed at https://confab-server.herokuapp.com
