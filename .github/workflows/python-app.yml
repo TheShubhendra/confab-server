@@ -37,3 +37,5 @@ jobs:
     - name: Pytest
       run: |
         pytest
+      env:
+        DABASE_URL: ${{ secrets.DATABASE_URL }}
