@@ -1,0 +1,45 @@
+name: Test
+
+on: 
+  push:
+    branches [main]
+  pull_request:
+    branches[main]
+    
+jobs:
+  test:
+
+    runs-on: ubantu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - usage: actions/checkout@v2
+      - name: Setup Python 3.9
+        usage: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+      - name: Build and install package
+        run: |
+          pip install -e .
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Pytest
+        run: |
+          pytest --cov
+        env:
+          DATABASE_URL: "dbname=postgres user=postgres password=postgres host=postgres"
