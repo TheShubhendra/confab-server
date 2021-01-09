@@ -38,4 +38,4 @@ jobs:
       run: |
         pytest
       env:
-        DABASE_URL: ${{ secrets.DATABASE_URL }}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
