@@ -1,9 +1,8 @@
-from requests import post
-from .helper import delete_tested_user
+from .helper import delete_tested_user, start_server
 
 
-def test_check_username():
-    url = 'http://127.0.0.1:5000/api/checkusername'
+def test_check_username(client):
+    url = 'http://127.0.0.1:8000/api/checkusername'
     data1 = {
              "username": "available-username-availibilty-test",
              "password": "unit-test",
@@ -14,13 +13,13 @@ def test_check_username():
              "password": "unit-test",
              "client_data": "unit-test",
     }
-    req1 = post(url, json=data1)
-    req2 = post(url, json=data2)
-    assert req1.text == "1" and req2.text == "0"
+    res1 = client.post(url, json=data1)
+    res2 = client.post(url, json=data2)
+    assert res1.data == b"1" and res2.data == b"0"
 
 
-def test_register():
-    url = 'http://127.0.0.1:5000/api/register'
+def test_register(client):
+    url = 'http://127.0.0.1:8000/api/register'
     data1 = {
         "username": "newuser-register-test",
         "password": "unit-test",
@@ -31,12 +30,7 @@ def test_register():
         "password": "unit-test",
         "client_data": "unit-test"
     }
-    req1 = post(url, json=data1)
-    req2 = post(url, json=data2)
+    res1 = client.post(url, json=data1)
+    res2 = client.post(url, json=data2)
     delete_tested_user("newuser-register-test")
-    assert req1.text == "1" and req2.text == "0"
-
-
-if __name__ == '__main__':
-    test_check_username()
-    test_register()
+    assert res1.data == b"1" and res2.data == b"0"
