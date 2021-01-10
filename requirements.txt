@@ -2,4 +2,3 @@ flask
 psycopg2
 gunicorn
 python-dev
-libpq-dev
