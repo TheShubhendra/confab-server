@@ -1,2 +1,0 @@
-2021-01-10 06:44:11.145 IST [13689] FATAL:  database files are incompatible with server
-2021-01-10 06:44:11.145 IST [13689] DETAIL:  The data directory was initialized by PostgreSQL version 12, which is not compatible with this version 13.1.
