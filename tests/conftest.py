@@ -3,6 +3,7 @@ from confabserver.database import ConfabDatabaseConnector
 from confabserver.server import app
 import datetime
 
+
 @pytest.fixture
 def client():
     """A test client for the app."""
@@ -31,11 +32,12 @@ def setup_tables(request):
     (username, password, last_login, client_data)
     VALUES (%s, %s, %s, %s)"""
     last_login = datetime.datetime.now()
-    values = ("unavailable-username-availibilty-test",
-              "unit-test",
-              last_login,
-              "unit-test",
-              )
+    values = (
+        "unavailable-username-availibilty-test",
+        "unit-test",
+        last_login,
+        "unit-test",
+    )
     connector.execute(sql, values)
     connector.commit()
     sql = """
@@ -43,10 +45,11 @@ def setup_tables(request):
     (username, password, last_login, client_data)
     VALUES (%s, %s, %s, %s)"""
     last_login = datetime.datetime.now()
-    values = ("olduser-register-test",
-              "unit-test",
-              last_login,
-              "unit-test",
-              )
+    values = (
+        "olduser-register-test",
+        "unit-test",
+        last_login,
+        "unit-test",
+    )
     connector.execute(sql, values)
     connector.commit()

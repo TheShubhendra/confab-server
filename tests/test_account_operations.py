@@ -2,16 +2,16 @@ from .helper import delete_tested_user
 
 
 def test_check_username(client):
-    url = '/api/checkusername'
+    url = "/api/checkusername"
     data1 = {
-             "username": "available-username-availibilty-test",
-             "password": "unit-test",
-             "client_data": "unit-test",
+        "username": "available-username-availibilty-test",
+        "password": "unit-test",
+        "client_data": "unit-test",
     }
     data2 = {
-             "username": "unavailable-username-availibilty-test",
-             "password": "unit-test",
-             "client_data": "unit-test",
+        "username": "unavailable-username-availibilty-test",
+        "password": "unit-test",
+        "client_data": "unit-test",
     }
     res1 = client.post(url, json=data1)
     res2 = client.post(url, json=data2)
@@ -19,7 +19,7 @@ def test_check_username(client):
 
 
 def test_register(client):
-    url = '/api/register'
+    url = "/api/register"
     data1 = {
         "username": "newuser-register-test",
         "password": "unit-test",
@@ -28,7 +28,7 @@ def test_register(client):
     data2 = {
         "username": "olduser-register-test",
         "password": "unit-test",
-        "client_data": "unit-test"
+        "client_data": "unit-test",
     }
     res1 = client.post(url, json=data1)
     res2 = client.post(url, json=data2)

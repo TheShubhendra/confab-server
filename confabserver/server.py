@@ -11,7 +11,7 @@ DATABASE_URL = os.environ.get("DATA")
 app = Flask(__name__)
 
 
-@app.route('/api/register', methods=["POST"])
+@app.route("/api/register", methods=["POST"])
 def register():
     """Register a user in Confab."""
     data = request.get_json()
@@ -24,7 +24,7 @@ def register():
         return "0"
 
 
-@app.route('/api/checkusername', methods=["post"])
+@app.route("/api/checkusername", methods=["post"])
 def checkusername():
     """Check availability of a username."""
     username = request.get_json()["username"]
@@ -38,5 +38,5 @@ def main():
     app.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

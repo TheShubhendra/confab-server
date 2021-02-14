@@ -18,11 +18,12 @@ def register_user(username: str, password: str, client_data: str) -> bool:
     (username, password, last_login, client_data)
     VALUES (%s, %s, %s, %s)"""
     last_login = datetime.datetime.now()
-    values = (username,
-              password,
-              last_login,
-              client_data,
-              )
+    values = (
+        username,
+        password,
+        last_login,
+        client_data,
+    )
     connector.execute(sql, values)
     connector.commit()
     return True
